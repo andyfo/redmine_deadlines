@@ -1,0 +1,19 @@
+<h2>Edit Deadline</h2>
+
+<p><%= link_to 'Back to deadlines calendar', deadlines_path %></p>
+
+<%= form_for(@deadline) do |f| %>
+
+<%= render :partial => "form", :locals => { :f => f } %>
+
+<p><%= f.submit 'Save' %></p>
+
+<% end %>
+
+<br><br>
+
+<p><%= link_to 'Delete this deadline', deadline_path(@deadline), :method => :delete, :confirm => "Are you sure?" %></p>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'style', :plugin => 'deadlines' %>
+<% end %>

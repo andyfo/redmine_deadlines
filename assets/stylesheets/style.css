@@ -1,0 +1,53 @@
+.statistics {
+  font-size: 1.1em;
+}
+
+.form-deadlines {
+  width: 100%;
+  overflow: auto;
+}
+
+.form-deadlines .form-left {
+  float: left;
+  width: 350px;
+}
+
+.form-assigned_to label {
+  display: block;
+  padding: 0.3em 0;
+}
+
+.deadline-ct {
+  padding-bottom: 2px;
+}
+
+.deadline {
+  padding: 0.1em;
+  color: #000 !important;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.deadline:hover {
+  text-decoration: none;
+}
+
+.form-states {
+  padding: 0.3em 0;
+}
+
+.form-states label {
+  font-weight: bold;
+  padding-right: 1em;
+  padding-left: 0.2em;
+}
+
+.state-expected { color: #338edc; }
+.state-ok { color: #7dbf20; }
+.state-missed { color: #dc3333; }
+.state-early { color: #cba90a; }
+
+.state-bg-expected { background-color: #d8edff; }
+.state-bg-ok { background-color: #99cd50; }
+.state-bg-missed { background-color: #dc3333; color: #fff !important; }
+.state-bg-early { background-color: #d8bc39; }

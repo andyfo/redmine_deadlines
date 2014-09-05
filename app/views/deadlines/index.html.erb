@@ -1,0 +1,40 @@
+<h2>Deadlines</h2>
+
+<%= link_to 'Add deadline', new_deadline_path %>
+
+<%= form_tag({:controller => 'deadlines', :action => 'index'},
+             :method => :get, :id => 'query_form') do %>
+<%= hidden_field_tag 'set_filter', '1' %>
+<p style="float:right;">
+  <%= link_to_previous_month(@year, @month) %> | <%= link_to_next_month(@year, @month) %>
+</p>
+
+<p class="buttons">
+<%= label_tag('month', l(:label_month)) %>
+<%= select_month(@month, :prefix => "month", :discard_type => true) %>
+<%= label_tag('year', l(:label_year)) %>
+<%= select_year(@year, :prefix => "year", :discard_type => true) %>
+
+<%= link_to_function l(:button_apply), '$("#query_form").submit()', :class => 'icon icon-checked' %>
+</p>
+<% end %>
+
+<%= render :partial => 'calendar', :locals => {:calendar => @calendar} %>
+
+<% content_for :sidebar do %>
+  <h3>Deadlines Statistics</h3>
+  <% @statistics.each do |stat| %>
+    <p class="statistics">
+      <strong><%= stat["name"] %></strong><br>
+      Missed: <strong class="state-missed"><%= stat["missed"] %></strong> / 
+      OK: <strong class="state-ok"><%= stat["ok"] %></strong> /
+      Early: <strong class="state-early"><%= stat["early"] %></strong>
+    </p>
+  <% end %>
+<% end %>
+
+<% html_title("Deadlines") -%>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'style', :plugin => 'deadlines' %>
+<% end %>

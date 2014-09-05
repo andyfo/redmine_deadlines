@@ -1,0 +1,18 @@
+<div class="form-deadlines">
+  <div class="form-left">
+    <p><strong><%= f.label :title %></strong><br> <%= f.text_field :title %></p>
+    <p><strong><%= f.label :due_date %></strong><br> <%= f.text_field :due_date, :size => 11 %><%= calendar_for('deadline_due_date') %></p>
+    <p><strong><%= f.label :notes %></strong><br> <%= f.text_area :notes, :rows => 10, :cols => 40 %></p>
+    <div><strong>State</strong>
+      <div class="form-states">
+        <% possible_states.each do |state| %>
+          <%= f.radio_button :state, state %><%= f.label :state, state.camelize, :for => "deadline_state_#{state}", :class => "state-#{state}" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-right">
+    <p class="form-assigned_to"><strong><%= f.label :assigned_to, 'Assignees' %></strong> <%= users_checkboxes @deadline, @users %></p>
+  </div>
+</div>
