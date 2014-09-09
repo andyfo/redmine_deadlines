@@ -26,9 +26,9 @@
   <% @statistics.each do |stat| %>
     <p class="statistics">
       <strong><%= stat["name"] %></strong><br>
-      Missed: <strong class="state-missed"><%= stat["missed"] %></strong> / 
+      Early: <strong class="state-early"><%= stat["early"] %></strong> /
       OK: <strong class="state-ok"><%= stat["ok"] %></strong> /
-      Early: <strong class="state-early"><%= stat["early"] %></strong>
+      Missed: <strong class="state-missed"><%= stat["missed"] %></strong>
     </p>
   <% end %>
 <% end %>
